@@ -40,4 +40,22 @@ router.post(
 //   body: JSON.stringify({ credential: 'demo@user.io', password: 'password' })
 // }).then(res => res.json()).then(data => console.log(data));
 
+// Log out
+router.delete(
+  '/',
+  (_req, res) => {
+    res.clearCookie('token');
+    return res.json({ message: 'success' });
+  }
+);
+
+//Test Logout Route
+// fetch('/api/session', {
+//   method: 'DELETE',
+//   headers: {
+//     "Content-Type": "application/json",
+//     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+//   }
+// }).then(res => res.json()).then(data => console.log(data));
+
 module.exports = router;
